@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- UIkit CSS -->
+   <!-- CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css" />
+  <title>Welcome | Shandy4u </title>
+</head>
+<style>
+  body {
+  background-color: rgba(242, 142, 28, 0.7);
+  }
+</style>
+<body>
+  <div id = 'main' class="content uk-container uk-padding-left uk-flex uk-flex-center uk-flex-row uk-flex-middle">
+    <div class="infobox uk-width-3-4 uk-margin-right uk-padding">
+      <h1 class="uk-heading-medium">Welcome to Shandy4u</h1>
+      <p class="uk-text-lead">Click <a href="/login_page" class="text-white">here</a> to login</p>
+      <p class="uk-text-lead">New to Shandy4u? <a href="/registration_page" class="text-white" >Create an account</a></p>
+    </div>
+  </div>
+<script language="javascript">
+        function autoResizeDiv()
+        {
+            document.getElementById('main').style.height = window.innerHeight +'px';
+        }
+        window.onresize = autoResizeDiv;
+        autoResizeDiv();
+</script>
+</body>
+</html>

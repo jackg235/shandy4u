@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css?family=Kulim+Park:300,400&display=swap" rel="stylesheet">
+    <!-- UIkit CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.2.3/dist/css/uikit.min.css" />
+  <title>Register | Shandy4u</title>
+</head>
+<style>
+  body {
+  background-color: rgba(242, 142, 28, 0.7);
+  }
+</style>
+<body>
+  <div id = 'main' class="content uk-container uk-padding-left uk-flex uk-flex-center uk-flex-row uk-flex-middle">
+    <div class="infobox uk-width-3-4 uk-margin-right uk-padding">
+      <h1 class="uk-heading-medium">Register</h1>
+      <p class="uk-text-lead">Already have an account? <a href="/login_page">Log in here</a></p>
+    </div>
+    <div class="login-form uk-float-right uk-border-rounded uk-padding-large">
+      <form action="/register" method = "post">
+          {% csrf_token %}
+          <div class="uk-margin">
+              <div class="uk-inline">
+                  <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: mail"></span>
+                  <input name="email" id="email" class="uk-input uk-border-pill" placeholder="e-mail" type="text" required>
+              </div>
+          </div>
+          <div class="uk-margin">
+              <div class="uk-inline">
+                  <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: social"></span>
+                  <input name="username" id="username" class="uk-input uk-border-pill" placeholder="username" type="text" required>
+              </div>
+          </div>
+          <div class="uk-margin">
+              <div class="uk-inline">
+                  <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: lock"></span>
+                  <input name="password" id="password" class="uk-input uk-border-pill" placeholder="password" type="password" required>
+              </div>
+          </div>
+          <div class="uk-margin">
+              <div class="uk-inline">
+                  <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: user"></span>
+                  <input name="first" id="first" class="uk-input uk-border-pill" placeholder="first" type="text" required>
+              </div>
+          </div>
+          <div class="uk-margin">
+              <div class="uk-inline">
+                  <span class="uk-form-icon uk-form-icon-flip" uk-icon="icon: user"></span>
+                  <input name="last" id="last" class="uk-input uk-border-pill" placeholder="last" type="text" required>
+              </div>
+          </div>
+          <div class="uk-margin-bottom" style="text-align: center">
+              <button type="submit" class="uk-button submit-button uk-border-pill uk-width-1-1" id="submit">Register</button>
+          </div>
+      </form>
+    </div>
+  </div>
+<script language="javascript">
+        function autoResizeDiv()
+        {
+            document.getElementById('main').style.height = window.innerHeight +'px';
+        }
+        window.onresize = autoResizeDiv;
+        autoResizeDiv();
+</script>
+</body>
+</html>
