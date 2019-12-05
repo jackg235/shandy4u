@@ -1,7 +1,6 @@
 from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
-import requests
 import pandas as pd
 from beerapp.models import *
 
@@ -58,9 +57,6 @@ def login_page(request):
 
 # render home page
 def home(request):
-    response = requests.get('http://freegeoip.net/json/')
-    geodata = response.json()
-    print(geodata)
     return render(request, "home.html", {})
 
 
