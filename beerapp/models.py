@@ -15,3 +15,6 @@ class Drink(models.Model):
     state = models.CharField(max_length=200)
     country = models.CharField(max_length=200)
     website = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.name + " is a " + self.category + " brewed by " + self.brewer + " from " + self.country
