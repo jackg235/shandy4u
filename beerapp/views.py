@@ -33,7 +33,7 @@ def readfile():
 # allows user to log in or sign up
 def splash(request):
     print("rendering splash page")
-    readfile()
+    #readfile() --> ONLY TO BE CALLED ONCE WHEN LOADING DATA
     return render(request, "splash.html", {})
 
 
