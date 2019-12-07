@@ -29,39 +29,100 @@
       <div class="jumbotron text-left text-white p-5">
           <div>
             <div class="home"><h1>Home</h1></div>
-            <div class="prof"><h4><a style="color:white"  href="/profile?id={{user.id}}">View Profile</a></h4></div>
+            <div class="prof"><h4><a style="color:white"  href="/profile/{{user.id}}">View Profile</a></h4></div>
           </div>
       </div>
         <div class="row">
         <div class="col-md-6">
+
+
           <p class="subtitle" style = "color: rgba(242, 142, 28)" >Recommended for you</p>
           <div class="row mb-2">
             <div class="col-md-12">
               <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style= "color:black">[name of drink]</a></h4>
+                  <h4><a href="/beer?name" style= "color:black">[name of drink 1]</a></h4>
                   <div class="mb-1 text-muted">[category]</div>
-                  <p class="card-text mb-auto">[info about drink]</p>
+                  <p class="card-text mb-auto">[info about drink 1]</p>
                   <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-6">
-          <p class="subtitle" style = "color: rgba(242, 142, 28)" >Popular</p>
+
           <div class="row mb-2">
             <div class="col-md-12">
               <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style= "color:black">[name of drink]</a></h4>
+                  <h4><a href="/beer?name" style= "color:black">[name of drink 2]</a></h4>
                   <div class="mb-1 text-muted">[category]</div>
-                  <p class="card-text mb-auto">[info about drink]</p>
+                  <p class="card-text mb-auto">[info about drink 2]</p>
                   <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
                 </div>
               </div>
             </div>
           </div>
+
+          <div class="row mb-2">
+              <div class="col-md-12">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                  <div class="card-body d-flex flex-column align-items-start">
+                    <h4><a href="/beer?name" style= "color:black">[name of drink 3]</a></h4>
+                    <div class="mb-1 text-muted">[category]</div>
+                    <p class="card-text mb-auto">[info about drink 3]</p>
+                    <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+
+        <div class="col-md-6">
+
+
+          <p class="subtitle" style = "color: rgba(242, 142, 28)" >Popular near you</p>
+
+          
+          <div class="row mb-2">
+            <div class="col-md-12">
+              <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                <div class="card-body d-flex flex-column align-items-start">
+                  <h4><a href="/beer?name" style= "color:black">[name of drink 1]</a></h4>
+                  <div class="mb-1 text-muted">[category]</div>
+                  <p class="card-text mb-auto">[info about drink 1]</p>
+                  <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row mb-2">
+              <div class="col-md-12">
+                <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                  <div class="card-body d-flex flex-column align-items-start">
+                    <h4><a href="/beer?name" style= "color:black">[name of drink 2]</a></h4>
+                    <div class="mb-1 text-muted">[category]</div>
+                    <p class="card-text mb-auto">[info about drink 2]</p>
+                    <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row mb-2">
+                <div class="col-md-12">
+                  <div class="card flex-md-row mb-4 box-shadow h-md-250">
+                    <div class="card-body d-flex flex-column align-items-start">
+                      <h4><a href="/beer?name" style= "color:black">[name of drink 3]</a></h4>
+                      <div class="mb-1 text-muted">[category]</div>
+                      <p class="card-text mb-auto">[info about drink 3]</p>
+                      <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
         </div>
       </div>
       <hr />

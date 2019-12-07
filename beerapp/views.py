@@ -78,6 +78,10 @@ def register(request):
         return redirect('/home')
     return redirect('/registration_page')
 
+# render user profile
+def profile(request, id):
+    return render(request, 'profile.html', {})
+
 
 # favorite a beer
 def favorite(request):
