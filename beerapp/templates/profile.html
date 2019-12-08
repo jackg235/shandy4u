@@ -1,82 +1,160 @@
-
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Shandy4u | Profile</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
-    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
-  </head>
-  <body>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shandy4u | Profile</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+
+<body>
   <style>
+    .modalDialog {
+      position: fixed;
+      font-family: Arial, Helvetica, sans-serif;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(0, 0, 0, 0.8);
+      z-index: 99999;
+      opacity: 0;
+      -webkit-transition: opacity 400ms ease-in;
+      -moz-transition: opacity 400ms ease-in;
+      transition: opacity 400ms ease-in;
+      pointer-events: none;
+    }
 
-#myInput {
-  background-image: url('/css/searchicon.png');
-  background-position: 10px 12px;
-  background-repeat: no-repeat;
-  width: 100%;
-  font-size: 16px;
-  padding: 12px 20px 12px 40px;
-  border: 1px solid #ddd;
-  margin-bottom: 12px;
-}
+    .modalDialog:target {
+      opacity: 1;
+      pointer-events: auto;
+    }
 
-#myUL {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
+    .modalDialog>div {
+      width: 400px;
+      position: relative;
+      margin: 10% auto;
+      padding: 5px 20px 13px 20px;
+      border-radius: 10px;
+      background: #fff;
+      background: -moz-linear-gradient(#fff, #999);
+      background: -webkit-linear-gradient(#fff, #999);
+      background: -o-linear-gradient(#fff, #999);
+    }
 
-#myUL li a {
-  border: 1px solid #ddd;
-  margin-top: -1px; /* Prevent double borders */
-  background-color: #f6f6f6;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px;
-  color: black;
-  display: block
-}
+    .close {
+      background: #606061;
+      color: #FFFFFF;
+      line-height: 25px;
+      position: absolute;
+      right: -12px;
+      text-align: center;
+      top: -10px;
+      width: 24px;
+      text-decoration: none;
+      font-weight: bold;
+      -webkit-border-radius: 12px;
+      -moz-border-radius: 12px;
+      border-radius: 12px;
+      -moz-box-shadow: 1px 1px 3px #000;
+      -webkit-box-shadow: 1px 1px 3px #000;
+      box-shadow: 1px 1px 3px #000;
+    }
 
-#myUL li a:hover:not(.header) {
-  background-color: #eee;
-}
+    .close:hover {
+      background: #00d9ff;
+    }
 
-  .jumbotron {
-    background-color: rgba(242, 142, 28, 0.7);
-    height: 120px;
-  }
-  .home {
-    float: left;
-  }
-  .prof {
-    float:right;
-    text-align:right;
-    color: black;
-  }
-</style>
+    #myInput {
+      background-image: url('/css/searchicon.png');
+      background-position: 10px 12px;
+      background-repeat: no-repeat;
+      width: 100%;
+      font-size: 16px;
+      padding: 12px 20px 12px 40px;
+      border: 1px solid #ddd;
+      margin-bottom: 12px;
+    }
+
+    #myUL {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    #myUL li a {
+      border: 1px solid #ddd;
+      margin-top: -1px;
+      /* Prevent double borders */
+      background-color: #f6f6f6;
+      padding: 12px;
+      text-decoration: none;
+      font-size: 18px;
+      color: black;
+      display: block
+    }
+
+    #myUL li a:hover:not(.header) {
+      background-color: #eee;
+    }
+
+    .jumbotron {
+      background-color: rgba(242, 142, 28, 0.7);
+      height: 120px;
+    }
+
+    .home {
+      float: left;
+    }
+
+    .prof {
+      float: right;
+      text-align: right;
+      color: black;
+    }
+  </style>
   <section class="section">
     <div class="container" margin-bottom=0.5rem>
       <div class="jumbotron text-left text-white p-5">
-          <div>
-            <div class="home"><h1>{{user.username}}'s Profile</h1></div>
-            <div class="prof"><h4><a style="color:white"  href="/home">Home</a></h4></div>
+        <div>
+          <div class="home">
+            <h1>{{user.username}}'s Profile</h1>
           </div>
+          <div class="prof">
+            <h4><a style="color:white" href="/home">Home</a></h4>
+          </div>
+        </div>
       </div>
-        <div class="row">
-        <div class="col-md-6" overflow: scroll>
+      <div class="row">
+        <div class="col-md-6">
 
 
-          <p class="subtitle" style = "color: rgba(242, 142, 28)">{{user.username}}'s Favorite Drinks</p>
+          <p class="subtitle" style="color: rgba(242, 142, 28)">{{user.username}}'s Favorite Drinks</p>
           <div class="row mb-2">
             <div class="col-md-12">
               <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style= "color:black">[name of drink 1]</a></h4>
+                  <h4><a href="/beer?name" style="color:black">[name of drink 1]</a></h4>
                   <div class="mb-1 text-muted">[category]</div>
-                  <p class="card-text mb-auto">[info about drink 1]</p>
+
+                  <a href="#openModal1">Get Info</a>
+
+                  <div id="openModal1" class="modalDialog">
+                    <div>
+                      <a href="#close" title="Close" class="close">X</a>
+                      <h2>[beer] Info</h2>
+                      <p>This is a sample modal box that can be created using the powers of CSS3. </p>
+                      <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or
+                        create a login/register form for users.</p>
+                    </div>
+                  </div>
+
                   <a href="/removeDrink?drink={{drink.name}}">[remove from favorites]</a>
                 </div>
               </div>
@@ -87,75 +165,107 @@
             <div class="col-md-12">
               <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style= "color:black">[name of drink 2]</a></h4>
+                  <h4><a href="/beer?name" style="color:black">[name of drink 2]</a></h4>
                   <div class="mb-1 text-muted">[category]</div>
-                  <p class="card-text mb-auto">[info about drink 2]</p>
+
+
+                  <a href="#openModal2">Box 1</a>
+
+                  <div id="openModal2" class="modalDialog">
+                    <div>
+                      <a href="#close" title="Close" class="close">X</a>
+                      <h2>Modal Box 1</h2>
+                      <p>This is a sample modal box that can be created using the powers of CSS3. </p>
+                      <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or
+                        create a login/register form for users.</p>
+                    </div>
+                  </div>
+
+
                   <a href="/removeDrink?drink={{drink.name}}">[remove from favorites]</a>
                 </div>
               </div>
             </div>
           </div>
 
-          
 
-          <div class="row mb-2">
+
+            <div class="row mb-2">
               <div class="col-md-12">
                 <div class="card flex-md-row mb-4 box-shadow h-md-250">
                   <div class="card-body d-flex flex-column align-items-start">
-                    <h4><a href="/beer?name" style= "color:black">[name of drink 3]</a></h4>
+                    <h4><a href="/beer?name" style="color:black">[name of drink 3]</a></h4>
                     <div class="mb-1 text-muted">[category]</div>
-                    <p class="card-text mb-auto">[info about drink 3]</p>
+                    
+                    <a href="#openModal3">Get Info</a>
+
+                    <div id="openModal3" class="modalDialog">
+                      <div>
+                        <a href="#close" title="Close" class="close">X</a>
+                        <h2>[beer] Info</h2>
+                        <p>This is a sample modal box that can be created using the powers of CSS3. </p>
+                        <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or
+                          create a login/register form for users.</p>
+                      </div>
+                    </div>
+
                     <a href="/removeDrink?drink={{drink.name}}">[remove from favorites]</a>
                   </div>
                 </div>
               </div>
             </div>
 
-        </div>
+          </div>
 
-        <div class="col-md-6">
+          <div class="col-md-6">
 
             <h1>Find a New Favorite</h1>
             <h4>Click to add to favorites</h4>
 
-            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for beer names.." title="Type in a name">
-            
+            <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for beer names..."
+              title="Type in a name">
+
             <ul id="myUL" top:5>
               <li><a href="/addDrink?drink={{drink.name}}">Bud Light</a></li>
               <li><a href="/addDrink?drink={{drink.name}}">Miller Light</a></li>
-            
               <li><a href="/addDrink?drink={{drink.name}}">Victory</a></li>
               <li><a href="/addDrink?drink={{drink.name}}">60 Minute</a></li>
               <li><a href="/addDrink?drink={{drink.name}}">DogFish Head</a></li>
+              <li><a href="/addDrink?drink={{drink.name}}">Golden Monkey</a></li>
+              <li><a href="/addDrink?drink={{drink.name}}">Angry Elf</a></li>
+              <li><a href="/addDrink?drink={{drink.name}}">90 Minute</a></li>
             </ul>
 
+          </div>
         </div>
-      </div>
-      <hr />
-      <a style="color:rgba(242, 142, 28)" href="/logout" >Log Out</a>
+        <hr />
+        <a style="color:rgba(242, 142, 28)" href="/logout">Log Out</a>
       </div>
   </section>
 
   <script>
-      function myFunction() {
-          var input, filter, ul, li, a, i, txtValue;
-          input = document.getElementById("myInput");
-          filter = input.value.toUpperCase();
-          ul = document.getElementById("myUL");
-          li = ul.getElementsByTagName("li");
-          for (i = 0; i < li.length; i++) {
-              a = li[i].getElementsByTagName("a")[0];
-              txtValue = a.textContent || a.innerText;
-              if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                  li[i].style.display = "";
-              } else {
-                  li[i].style.display = "none";
-              }
-          }
+    function myFunction() {
+      var input, filter, ul, li, a, i, txtValue;
+      input = document.getElementById("myInput");
+      filter = input.value.toUpperCase();
+      ul = document.getElementById("myUL");
+      li = ul.getElementsByTagName("li");
+      for (i = 0; i < li.length; i++) {
+        a = li[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+          li[i].style.display = "";
+        } else {
+          li[i].style.display = "none";
+        }
       }
-      </script>
+    }
 
-  </body>
+
+  </script>
+
+</body>
+
 </html>
 
 <!-- UIkit CSS 
