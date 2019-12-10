@@ -1,7 +1,21 @@
 #Shandy4u
 Shandy4u is a both a cellar and a bartender - it allows you to search for
 and save all your favorite beers and it recommends you new
-beers based off what you like and what is popular. 
+beers based off what you like and what is popular.
+
+### Implementation Requirments
+
+Class + magic methods:
+__str__ (to string method)
+__eq__ (equals method)
+
+First party packages:
+csv (reading in our DB)
+Pandas (working with our DF)
+
+Third party packages:
+Django (web + app design)
+SKLearn (recommendation model)
 
 ### Installation Instructions
 To run shandy4u, cd to the outer "shandy4u" directory 

@@ -1,16 +1,26 @@
 import pandas as pd
+import random
 from sklearn.cluster import KMeans
 from beerapp.models import *
 from sklearn.metrics import pairwise_distances_argmin_min
 
 
 def getRecommendations(favorites, beers):
-    # process beers
-    if len(favorites) == 0:
-        return []
+
+    recs = []
     brew = preprocessing_df(beers)
     # drop name (rename so that we can retrieve later)
     beer_df = brew.drop(['name'], axis=1)
+
+    # get a random drink to recommend
+    random_rec = random.randint(0, len(beer_df) - 1)
+    name = brew.iloc[random_rec, 0]
+    drink = Drink.objects.get(name=name)
+    recs.append(drink)
+
+    # process beers
+    if len(favorites) == 0:
+        return recs
     # process favorites
     favorites_df = preprocessing_df(favorites)
     favorites_df = favorites_df.drop(['name'], axis=1)
@@ -21,9 +31,9 @@ def getRecommendations(favorites, beers):
     kmeans.fit(beer_df)
     # get the drinks most closely related to our favorites
     closest, _ = pairwise_distances_argmin_min(kmeans.cluster_centers_, beer_df)
-    recs = []
+
     # get details for most similar drinks and pass as drink objects back to home page
-    for c in closest :
+    for c in closest:
         name = brew.iloc[c, 0]
         drink = Drink.objects.get(name=name)
         recs.append(drink)
