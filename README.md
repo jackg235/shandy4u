@@ -7,11 +7,11 @@ beers based off what you like and what is popular.
 
 Class + magic methods:
 __str__ (to string method)
-__eq__ (equals method)
+__eq__ (equals method) within the Drink model
 
 First party packages:
-csv (reading in our DB)
-Pandas (working with our DF)
+math (formatting abv when displaying on screen),
+random (add a random drink to the recommendations)
 
 Third party packages:
 Django (web + app design),
