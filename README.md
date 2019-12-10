@@ -14,8 +14,9 @@ csv (reading in our DB)
 Pandas (working with our DF)
 
 Third party packages:
-Django (web + app design)
-SKLearn (recommendation model)
+Django (web + app design),
+SKLearn (recommendation model),
+pandas (recommendation model)
 
 ### Installation Instructions
 To run shandy4u, cd to the outer "shandy4u" directory 

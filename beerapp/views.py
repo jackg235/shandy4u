@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 import pandas as pd
 from beerapp.models import *
 from beerapp.recommender import *
+import math
 
 
 # reads in our file containing information for over 5k beers. this should only be called once in initialization
@@ -65,8 +66,9 @@ def home(request):
     drinks = Drink.objects.all().order_by('-popular')
     # get recommended drinks
     recs = getRecommendations(Drink.objects.filter(users=request.user), drinks)
-    for r in recs :
-        print(r)
+    # format decimal
+    for r in recs:
+        r.abv = math.ceil(r.abv * 10) / 10
     popular = []
     for d in drinks:
         if d.popular < 1:
@@ -74,6 +76,7 @@ def home(request):
         # only include drinks that the user has not already favorited
         if not d.users.filter(username=request.user.username).exists():
             if d.style != 'nan' and d.category != 'nan':
+                d.abv = math.ceil(d.abv * 10) / 10
                 popular.append(d)
 
     return render(request, "home.html", {'username': request.user.username, 'recs': recs, 'popular': popular})
@@ -103,6 +106,9 @@ def register(request):
 # render user profile
 def profile(request):
     popular = Drink.objects.filter(users=request.user)
+    # format decimal
+    for r in popular:
+        r.abv = math.ceil(r.abv * 10) / 10
     drinks = Drink.objects.all()
     return render(request, 'profile.html', {'popular': popular, 'drinks': drinks})
 
