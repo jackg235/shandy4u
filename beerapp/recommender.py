@@ -6,6 +6,8 @@ from sklearn.metrics import pairwise_distances_argmin_min
 
 def getRecommendations(favorites, beers):
     # process beers
+    if len(favorites) == 0:
+        return []
     brew = preprocessing_df(beers)
     # drop name (rename so that we can retrieve later)
     beer_df = brew.drop(['name'], axis=1)
