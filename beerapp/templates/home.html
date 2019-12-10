@@ -94,7 +94,7 @@
             <h1>Home</h1>
           </div>
           <div class="prof">
-            <h4><a style="color:white" href="/profile/{{user.id}}">View Profile</a></h4>
+            <h4><a style="color:white" href="/profile?{{username}}">View Profile</a></h4>
           </div>
         </div>
       </div>
@@ -102,150 +102,69 @@
         <div class="col-md-6">
 
 
-          <p class="subtitle" style="color: rgba(242, 142, 28)">Recommended for you</p>
+          <h5 class="subtitle" style="color: rgba(242, 142, 28)">Recommended for you</h5>
           <div class="row mb-2">
             <div class="col-md-12">
+              {% for rec in recs %}
               <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style="color:black">[name of drink 1]</a></h4>
-                  <div class="mb-1 text-muted">[category]</div>
-                  <a href="#openModal1">Get Info</a>
+                  <h4 style="color:black">{{rec.name}}</h4>
+                  <div class="row">
 
-                  <div id="openModal1" class="modalDialog">
-                    <div>
-                      <a href="#close" title="Close" class="close">X</a>
-                      <h2>[beer] Info</h2>
-                      <p>This is a sample modal box that can be created using the powers of CSS3. </p>
-                      <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or
-                        create a login/register form for users.</p>
+                    <div class="col">
+                        <div class="mb-1 text-muted"><b>Category </b>  {{rec.category}}</div>
+                        <div class="mb-1 text-muted"><b>Brewer </b>  {{rec.brewer}}</div>
+
                     </div>
-                  </div>
-                  <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
+
+                    <div class="col">
+                        <div class="mb-1 text-muted"> <b>Style </b> {{rec.style}}</div>
+                        <div class="mb-1 text-muted"> <b>ABV </b> {{rec.abv}}%</div>
+                        <div class="mb-1 text-muted"><b>Country </b>  {{rec.country}}</div>
+                    </div>
+                  </div
+                  <p>{{rec.description}}</p>
+                  <a href="/favorite?drink={{rec.name}}">Add to favorites</a>
                 </div>
               </div>
+              {% endfor %}
             </div>
           </div>
 
-          <div class="row mb-2">
-            <div class="col-md-12">
-              <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style="color:black">[name of drink 2]</a></h4>
-                  <div class="mb-1 text-muted">[category]</div>
-                  <a href="#openModal2">Get Info</a>
-
-                  <div id="openModal2" class="modalDialog">
-                    <div>
-                      <a href="#close" title="Close" class="close">X</a>
-                      <h2>[beer] Info</h2>
-                      <p>This is a sample modal box that can be created using the powers of CSS3. </p>
-                      <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or
-                        create a login/register form for users.</p>
-                    </div>
-                  </div>
-                  <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mb-2">
-            <div class="col-md-12">
-              <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style="color:black">[name of drink 3]</a></h4>
-                  <div class="mb-1 text-muted">[category]</div>
-                  <a href="#openModal3">Get Info</a>
-
-                  <div id="openModal3" class="modalDialog">
-                    <div>
-                      <a href="#close" title="Close" class="close">X</a>
-                      <h2>[beer] Info</h2>
-                      <p>This is a sample modal box that can be created using the powers of CSS3. </p>
-                      <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or
-                        create a login/register form for users.</p>
-                    </div>
-                  </div>
-                  <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
-                </div>
-              </div>
-            </div>
-          </div>
 
         </div>
 
         <div class="col-md-6">
 
 
-          <p class="subtitle" style="color: rgba(242, 142, 28)">Popular near you</p>
+          <h5 class="subtitle" style="color: rgba(242, 142, 28)">Popular</h5>
 
 
           <div class="row mb-2">
             <div class="col-md-12">
+              {% for pop in popular %}
               <div class="card flex-md-row mb-4 box-shadow h-md-250">
                 <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style="color:black">[name of drink 1]</a></h4>
-                  <div class="mb-1 text-muted">[category]</div>
-                  <a href="#openModal4">Get Info</a>
+                  <h4 style="color:black">{{pop.name}}</h4>
+                  <div class="row">
 
-                  <div id="openModal4" class="modalDialog">
-                    <div>
-                      <a href="#close" title="Close" class="close">X</a>
-                      <h2>[beer] Info</h2>
-                      <p>This is a sample modal box that can be created using the powers of CSS3. </p>
-                      <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or
-                        create a login/register form for users.</p>
+                    <div class="col">
+                        <div class="mb-1 text-muted"><b>Category </b>  {{pop.category}}</div>
+                        <div class="mb-1 text-muted"><b>Brewer </b>  {{pop.brewer}}</div>
+
                     </div>
-                  </div>
-                  <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
+
+                    <div class="col">
+                        <div class="mb-1 text-muted"> <b>Style </b> {{pop.style}}</div>
+                        <div class="mb-1 text-muted"> <b>ABV </b> {{pop.abv}}%</div>
+                        <div class="mb-1 text-muted"><b>Country </b>  {{pop.country}}</div>
+                    </div>
+                  </div
+                  <p>{{pop.description}}</p>
+                  <a href="/favorite?drink={{pop.name}}">Add to favorites</a>
                 </div>
               </div>
-            </div>
-          </div>
-
-          <div class="row mb-2">
-            <div class="col-md-12">
-              <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style="color:black">[name of drink 2]</a></h4>
-                  <div class="mb-1 text-muted">[category]</div>
-                  <a href="#openModal5">Get Info</a>
-
-                  <div id="openModal5" class="modalDialog">
-                    <div>
-                      <a href="#close" title="Close" class="close">X</a>
-                      <h2>[beer] Info</h2>
-                      <p>This is a sample modal box that can be created using the powers of CSS3. </p>
-                      <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or
-                        create a login/register form for users.</p>
-                    </div>
-                  </div>
-                  <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="row mb-2">
-            <div class="col-md-12">
-              <div class="card flex-md-row mb-4 box-shadow h-md-250">
-                <div class="card-body d-flex flex-column align-items-start">
-                  <h4><a href="/beer?name" style="color:black">[name of drink 3]</a></h4>
-                  <div class="mb-1 text-muted">[category]</div>
-                  <a href="#openModal6">Get Info</a>
-
-                  <div id="openModal6" class="modalDialog">
-                    <div>
-                      <a href="#close" title="Close" class="close">X</a>
-                      <h2>[beer] Info</h2>
-                      <p>This is a sample modal box that can be created using the powers of CSS3. </p>
-                      <p>You could do a lot of things here like have a pop-up ad that shows when your website loads, or
-                        create a login/register form for users.</p>
-                    </div>
-                  </div>
-                  <a href="/addDrink?drink={{drink.name}}">[add to favorites]</a>
-                </div>
-              </div>
+              {% endfor %}
             </div>
           </div>
 
