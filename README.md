@@ -1,4 +1,5 @@
-##Shandy4u
+# Shandy4u
+
 Shandy4u is a both a cellar and a bartender - it allows you to search for
 and save all your favorite beers and it recommends you new
 beers based off what you like and what is popular.
